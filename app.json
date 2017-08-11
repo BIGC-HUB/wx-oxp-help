@@ -1,0 +1,16 @@
+{
+    "pages": [
+        "page/index/e"
+    ],
+    "window": {
+        "enablePullDownRefresh": true,
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#FFF",
+        "navigationBarTitleText": "Oxpecker",
+        "navigationBarTextStyle": "black"
+    },
+    "networkTimeout": {
+        "request": 6000,
+        "downloadFile": 6000
+    }
+}
