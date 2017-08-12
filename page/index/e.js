@@ -16,9 +16,10 @@ Page({
     onLoad() {
         // 登陆
         wx.BaaS.login().then((res) => {
-            log('登陆成功', res)
-        }, (err) => {
-            log('登陆失败', err)
-        })
+            let uid = wx.BaaS.storage.get('uid')
+            wx.BaaS.getUserInfo({userID: uid}).then(res => {
+                // log('用户数据:', res)
+            })
+        }, (err) => {log(err)})
     },
 })

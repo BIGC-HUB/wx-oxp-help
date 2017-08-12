@@ -1,0 +1,4 @@
+<view class="top">
+    <image />
+    <text> 正在定位… </text>
+</view>
