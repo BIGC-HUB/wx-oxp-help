@@ -3,7 +3,8 @@ page {
     background: white;
 }
 .one {
-
+    margin: 0 auto;
+    width: 700rpx;
 }
 .one-top {
     margin-top: 20rpx;
@@ -35,7 +36,6 @@ page {
     color: #1e1e1e;
 }
 .one-location {
-    display: block;
     margin-top: 12rpx;
 }
 .one-content {
@@ -43,4 +43,44 @@ page {
     width: 672rpx;
     font-size: 28rpx;
     color: #1e1e1e;
+}
+.one-imgs {
+    margin-top: 30rpx;
+    width: 700rpx;
+    height: 524rpx;
+    background: #d8d8d8;
+}
+.one-tips {
+    display: flex;
+    justify-content: flex-end;
+    padding: 40rpx 0 30rpx;
+    border-bottom: 1px solid #e5e5e5;
+}
+.one-tip {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 200rpx;
+    background-color: #e44240;
+    color: #fff;
+    margin: 0 20rpx;
+    padding: 6rpx 28rpx;
+    height: 52rpx;
+}
+.one-phone {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20rpx 0;
+}
+.one-phone text:nth-child(1) {
+    margin-right: 26rpx;
+}
+.one-phone text:nth-child(2) {
+    text-align: left;
+    width: 500rpx;
+}
+.one-phone image {
+    width: 48rpx;
+    height: 48rpx;
 }

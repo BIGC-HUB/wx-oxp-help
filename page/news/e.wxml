@@ -6,8 +6,22 @@
                 <text class="one-name" >李梅梅</text>
                 <text class="one-time" >09:41/10/08</text>
             </view>
-            <text class="one-location"> 四川省成都市武侯区益州大道1800号 </text>
+            <view class="one-location"> 四川省成都市武侯区益州大道1800号 </view>
         </view>
     </view>
     <view class="one-content" > {{content}} </view>
+    <view class="one-imgs" ></view>
+    <view class="one-tips" >
+        <view class="one-tip">
+            <text>生命危急</text>
+        </view>
+        <view class="one-tip">
+            <text>骨折</text>
+        </view>
+    </view>
+    <view class="one-phone" >
+        <text> 联系他： </text>
+        <text> 18494390349 </text>
+        <image src="img/拨打电话.png" />
+    </view>
 </view>

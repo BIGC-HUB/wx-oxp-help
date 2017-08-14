@@ -1,8 +1,8 @@
 {
     "pages": [
         "page/news/e",
+        "page/info/info",
         "page/help/e",
-        "page/info/e",
         "page/oxp/oxp"
     ],
     "window": {

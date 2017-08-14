@@ -17,7 +17,25 @@ let time = function(z = new Date()) {
 Page({
     // 数据
     data: {
-        content: '文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述'
+        arr: [
+            {
+                types: 1,
+                date: "1502691674345",
+                content: "ndjhdjhajkds",
+                name: "name",
+                phone: "1273748",
+                idcard: "12367478589475846",
+                imgurls: [{
+                    "a": 455
+                }],
+                location: {
+                    "a": 123
+                },
+                user: {
+                    "nicknam": "游客1502687570128"
+                }
+            },
+        ],
     },
     // 刷新
     onPullDownRefresh() {

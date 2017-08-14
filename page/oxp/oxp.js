@@ -119,7 +119,7 @@ Page({
                 "ucloudtech_3rd_key": key
             },
             success: function(res) {
-                console.log(res)
+                console.log(JSON.stringify( res.data.data["0"]) )
             },
             fail: function(res) {
                 console.log(res)

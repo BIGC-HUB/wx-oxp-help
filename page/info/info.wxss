@@ -1,0 +1,52 @@
+.info_top{
+ display: flex;
+ height: 106rpx;
+ justify-content: space-between;
+}
+.info_bottom{
+ display: flex;
+ height: 88rpx;
+}
+.line {
+  height: 1px;
+  background-color: #efeff4;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.empty{
+  height: 44rpx;
+  background-color: #efeff4;
+  width: 100%;
+}
+.call_bg{
+ position: absolute;
+ margin-right: 30rpx;
+ left: 88%;
+}
+.call{
+  height: 48rpx;
+  width: 48rpx;
+}
+.team_phone{
+  margin-left: 66rpx;
+}
+.icon{
+  height: 48rpx;
+  width: 48rpx
+}
+.icon_bg{
+  height:80rpx;
+  width: 300rpx;
+  margin-top: 14rpx;
+  margin-left: 38rpx;
+  background-color:rgba(216, 216, 216, 0.5);
+}
+.team_name{
+  margin-top: 34rpx;
+  margin-bottom: 28rpx;
+  margin-right: 30rpx;
+}
+text{
+  margin-left: 30rpx;
+  font-size: 34rpx;
+}
