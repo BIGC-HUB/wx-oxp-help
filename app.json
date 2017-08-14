@@ -1,8 +1,8 @@
 {
     "pages": [
+        "page/help/e",
         "page/news/e",
         "page/info/info",
-        "page/help/e",
         "page/oxp/oxp"
     ],
     "window": {
@@ -30,7 +30,7 @@
                 "iconPath": "ku/img/未选中/news.png"
             },
             {
-                "pagePath": "page/info/e",
+                "pagePath": "page/info/info",
                 "text": "信息",
                 "selectedIconPath": "ku/img/已选中/info.png",
                 "iconPath": "ku/img/未选中/info.png"

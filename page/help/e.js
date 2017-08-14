@@ -25,15 +25,27 @@ Page({
         },
         choose: [
             {
+                now: true,
+                checked: '',
                 name: '医疗急救',
                 arr: ['出血', '骨折', '有人受伤', '被压', '无法行动', '意识不清', '生命危机'],
             },
             {
-                name: '物资',
+                checked: '',
+                name: '物资需要',
                 arr: ['饮用水', '食物', '毛毯', '帐篷'],
             },
+            {
+                checked: '',
+                name: '人员被困',
+                arr: [],
+            },
+            {
+                checked: '',
+                name: '其他',
+                arr: [],
+            },
         ],
-        tip: 0,
         info: [
             {
                 name: '个人姓名',
@@ -94,9 +106,18 @@ Page({
         //     }
         // })
     },
-    binType(e) {
+    bindType(e) {
+        let id = e.currentTarget.dataset.id
+        let choose = this.data.choose
+        choose.forEach(function(e, i) {
+            if (i === id) {
+                e.now = true
+            } else {
+                e.now = false
+            }
+        })
         this.setData({
-            tip: Number(e.currentTarget.dataset.id)
+            choose: choose
         })
     },
     bindTip(e) {

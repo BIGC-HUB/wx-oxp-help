@@ -6,26 +6,36 @@
     <view class="choose">
         <checkbox-group name="type">
             <block wx:for="{{choose}}" wx:key="key" >
-                <view class="checkbox" bindtap="binType" data-id="{{index}}">
-                    <button> {{item.name}} </button>
-                    <label> <checkbox value="{{item.name}}"/> </label>
+                <view wx:if="{{item.now === true}}">
+                    <view class="choose-checkbox choose-checked" bindtap="bindType" data-id="{{index}}">
+                        <label name="{{item.name}}">
+                            <text> {{item.name}} </text>
+                            <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+                        </label>
+                    </view>
+                    <view class="choose-tips" >
+                        <block wx:for="{{item.arr}}" wx:key="key" >
+                            <view class="choose-tip">
+                                <text> {{item}} </text>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+                <view wx:else >
+                    <view class="choose-checkbox" bindtap="bindType" data-id="{{index}}">
+                        <label name="{{item.name}}">
+                            <text> {{item.name}} </text>
+                            <checkbox value="{{item.name}}"/>
+                        </label>
+                    </view>
                 </view>
             </block>
         </checkbox-group>
-        <!-- <view> 选择标签 </view>
-        <view>
-            <block wx:for="{{choose[tip].arr}}" wx:for-item="e" wx:key="key" >
-                <view class="tip" bindtap="bindTip"> {{e}} </view>
-            </block>
-        </view> -->
-        <view>日期</view>
-        <view>{{date.text}}</view>
     </view>
     <!-- 文字描述 -->
-    <!-- <view class="words">
-        <view> 文字描述 </view>
-        <textarea name="content" auto-height placeholder="输入内容" />
-    </view> -->
+    <view class="words">
+        <textarea name="content" placeholder="文字描述" maxlength="72" />
+    </view>
     <!-- 个人信息 -->
     <!-- <view class="info">
         <view> 个人信息——仅用于救援，且只用在初次填写 </view>
