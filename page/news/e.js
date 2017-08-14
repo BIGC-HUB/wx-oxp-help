@@ -17,7 +17,7 @@ let time = function(z = new Date()) {
 Page({
     // 数据
     data: {
-
+        content: '文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述'
     },
     // 刷新
     onPullDownRefresh() {

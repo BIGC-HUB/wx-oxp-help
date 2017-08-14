@@ -1,15 +1,16 @@
 {
     "pages": [
-        "page/help/e",
         "page/news/e",
-        "page/info/e"
+        "page/help/e",
+        "page/info/e",
+        "page/oxp/oxp"
     ],
     "window": {
         "enablePullDownRefresh": true,
         "backgroundTextStyle": "dark",
         "navigationBarBackgroundColor": "#1e1e1e",
         "navigationBarTitleText": "Oxpecker",
-        "navigationBarTextStyle": "black"
+        "navigationBarTextStyle": "white"
     },
     "tabBar": {
         "color": "rgb(150, 150, 150)",

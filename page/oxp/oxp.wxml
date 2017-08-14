@@ -1,0 +1,5 @@
+
+<button bindtap="loginReject">拒绝权限登录请求</button>
+<button bindtap="loginAccess">允许权限登录请求</button>
+<button bindtap="reports">用户上传</button>
+<button bindtap="event">事件查询</button>

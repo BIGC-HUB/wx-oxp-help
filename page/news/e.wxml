@@ -1,1 +1,13 @@
-动态
+<view class="one">
+    <view class="one-top">
+        <image class="one-img" src="" />
+        <view class="one-info">
+            <view class="one-info-box">
+                <text class="one-name" >李梅梅</text>
+                <text class="one-time" >09:41/10/08</text>
+            </view>
+            <text class="one-location"> 四川省成都市武侯区益州大道1800号 </text>
+        </view>
+    </view>
+    <view class="one-content" > {{content}} </view>
+</view>

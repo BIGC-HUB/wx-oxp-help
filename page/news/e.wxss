@@ -1,0 +1,46 @@
+page {
+    font-size: 28rpx;
+    background: white;
+}
+.one {
+
+}
+.one-top {
+    margin-top: 20rpx;
+    display: flex;
+    /*justify-content: center;*/
+    width: 700rpx;
+    height: 130rpx;
+    border-bottom: 1px solid #e5e5e5;
+}
+.one-img {
+    width: 100rpx;
+    height: 100rpx;
+    margin-right: 20rpx;
+    border-radius: 50%;
+    background: #d8d8d8;
+}
+.one-info {
+    display: inline-block;
+    height: 100rpx;
+}
+.one-info-box {
+    display: flex;
+    justify-content: space-between;
+}
+.one-name {
+    font-size: 34rpx;
+}
+.one-time {
+    color: #1e1e1e;
+}
+.one-location {
+    display: block;
+    margin-top: 12rpx;
+}
+.one-content {
+    margin-top: 30rpx;
+    width: 672rpx;
+    font-size: 28rpx;
+    color: #1e1e1e;
+}
