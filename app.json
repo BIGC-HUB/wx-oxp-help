@@ -12,6 +12,9 @@
         "navigationBarTextStyle": "black"
     },
     "tabBar": {
+        "color": "rgb(150, 150, 150)",
+        "selectedColor": "#FFF",
+        "backgroundColor": "rgb(30, 30, 30)",
         "list": [
             {
                 "pagePath": "page/help/e",
