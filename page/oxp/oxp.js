@@ -2,9 +2,8 @@
 //获取应用实例
 let app = getApp()
 let key = "596dd24a8218732e287d7c1c"
-key = "599131525ceb95a07617c426";
-let host = "https://wxapp.ucloudtech.com:1337";
-// host = "https://192.168.1.126:1337";
+key = "599131525ceb95a07617c426"
+let host = "https://wxapp.ucloudtech.com:1337"
 
 Page({
     data: {

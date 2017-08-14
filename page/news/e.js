@@ -19,20 +19,23 @@ Page({
     data: {
         arr: [
             {
-                types: 1,
-                date: "1502691674345",
+                time: "09:41/10/08",
                 content: "ndjhdjhajkds",
-                name: "name",
-                phone: "1273748",
-                idcard: "12367478589475846",
-                imgurls: [{
-                    "a": 455
-                }],
+                name: "李梅梅",
+                phone: "18494390349",
+                imgurls: ['img/0.jpg', 'img/1.jpg', 'img/2.jpg'],
                 location: {
-                    "a": 123
-                },
-                user: {
-                    "nicknam": "游客1502687570128"
+                    name: "四川省成都市武侯区益州大道1800号",
+                }
+            },
+            {
+                time: "09:41/10/08",
+                content: "张飞张飞张飞张飞张飞",
+                name: "张飞",
+                phone: "123124",
+                imgurls: ['img/0.jpg', 'img/1.jpg', 'img/2.jpg'],
+                location: {
+                    name: "区益州大道1800号",
                 }
             },
         ],

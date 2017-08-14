@@ -1,13 +1,19 @@
 page {
     font-size: 28rpx;
-    background: white;
+    background: #efeff4;
 }
 .one {
+    background: #FFF;
+    border-bottom: 1px solid #e5e5e5;
+    width: 100%;
+    margin-bottom: 66rpx;
+}
+.one-box {
     margin: 0 auto;
     width: 700rpx;
 }
 .one-top {
-    margin-top: 20rpx;
+    padding-top: 20rpx;
     display: flex;
     /*justify-content: center;*/
     width: 700rpx;
@@ -23,6 +29,7 @@ page {
 }
 .one-info {
     display: inline-block;
+    width: calc(100% - 142rpx);
     height: 100rpx;
 }
 .one-info-box {
@@ -49,6 +56,10 @@ page {
     width: 700rpx;
     height: 524rpx;
     background: #d8d8d8;
+}
+.one-imgs image {
+    width: 700rpx;
+    height: 524rpx;
 }
 .one-tips {
     display: flex;

@@ -1,27 +1,37 @@
-<view class="one">
-    <view class="one-top">
-        <image class="one-img" src="" />
-        <view class="one-info">
-            <view class="one-info-box">
-                <text class="one-name" >李梅梅</text>
-                <text class="one-time" >09:41/10/08</text>
+<block wx:for="{{arr}}" wx:for-item="e" wx:key="key" >
+    <view class="one">
+        <view class="one-box">
+            <view class="one-top">
+                <image class="one-img" src="" />
+                <view class="one-info">
+                    <view class="one-info-box">
+                        <text class="one-name" >{{e.name}}</text>
+                        <text class="one-time" >{{e.time}}</text>
+                    </view>
+                    <view class="one-location"> {{e.location.name}} </view>
+                </view>
             </view>
-            <view class="one-location"> 四川省成都市武侯区益州大道1800号 </view>
+            <view class="one-content" > {{e.content}} </view>
+            <swiper class="one-imgs" indicator-dots autoplay>
+                <block wx:for="{{e.imgurls}}">
+                    <swiper-item>
+                        <image src="{{item}}" mode="aspectFit" />
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class="one-tips" >
+                <view class="one-tip">
+                    <text>生命危急</text>
+                </view>
+                <view class="one-tip">
+                    <text>骨折</text>
+                </view>
+            </view>
+            <view class="one-phone" >
+                <text> 联系他： </text>
+                <text> {{e.phone}} </text>
+                <image src="img/拨打电话.png" />
+            </view>
         </view>
     </view>
-    <view class="one-content" > {{content}} </view>
-    <view class="one-imgs" ></view>
-    <view class="one-tips" >
-        <view class="one-tip">
-            <text>生命危急</text>
-        </view>
-        <view class="one-tip">
-            <text>骨折</text>
-        </view>
-    </view>
-    <view class="one-phone" >
-        <text> 联系他： </text>
-        <text> 18494390349 </text>
-        <image src="img/拨打电话.png" />
-    </view>
-</view>
+</block>
