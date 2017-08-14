@@ -10,6 +10,7 @@ page {
 
     font-size: 16px;
     color: #343434;
+    background: #efeff4;
 }
 page, button, input, select, textarea {
     font-family: SF UI Text,Hiragino Sans GB,Roboto,Segoe UI,Microsoft Yahei,sans-serif !important;

@@ -1,35 +1,33 @@
+<view class="top">
+    <image src="img/定位.png" />
+    <text> {{location}} </text>
+</view>
 <form bindsubmit="formSubmit" bindreset="formReset">
-    <view class="top">
-        <image />
-        <text> {{location}} </text>
-    </view>
-
     <view class="choose">
-        <view> 选择救助类型 </view>
         <checkbox-group name="type">
             <block wx:for="{{choose}}" wx:key="key" >
                 <view class="checkbox" bindtap="binType" data-id="{{index}}">
-                    <label> <checkbox value="{{item.name}}"/> </label>
                     <button> {{item.name}} </button>
+                    <label> <checkbox value="{{item.name}}"/> </label>
                 </view>
             </block>
         </checkbox-group>
-        <view> 选择标签 </view>
+        <!-- <view> 选择标签 </view>
         <view>
             <block wx:for="{{choose[tip].arr}}" wx:for-item="e" wx:key="key" >
                 <view class="tip" bindtap="bindTip"> {{e}} </view>
             </block>
-        </view>
+        </view> -->
         <view>日期</view>
         <view>{{date.text}}</view>
     </view>
     <!-- 文字描述 -->
-    <view class="words">
+    <!-- <view class="words">
         <view> 文字描述 </view>
         <textarea name="content" auto-height placeholder="输入内容" />
-    </view>
+    </view> -->
     <!-- 个人信息 -->
-    <view class="info">
+    <!-- <view class="info">
         <view> 个人信息——仅用于救援，且只用在初次填写 </view>
         <block wx:for="{{info}}" wx:for-item="e" wx:key="key" >
             <view>
@@ -38,5 +36,5 @@
             </view>
         </block>
         <button type="primary" formType="submit"> 发布 </button>
-    </view>
+    </view> -->
 </form>

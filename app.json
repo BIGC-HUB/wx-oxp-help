@@ -7,7 +7,7 @@
     "window": {
         "enablePullDownRefresh": true,
         "backgroundTextStyle": "dark",
-        "navigationBarBackgroundColor": "#FFF",
+        "navigationBarBackgroundColor": "#1e1e1e",
         "navigationBarTitleText": "Oxpecker",
         "navigationBarTextStyle": "black"
     },
@@ -19,20 +19,20 @@
             {
                 "pagePath": "page/help/e",
                 "text": "求助",
-                "selectedIconPath": "ku/img/1/help.png",
-                "iconPath": "ku/img/0/help.png"
+                "selectedIconPath": "ku/img/已选中/help.png",
+                "iconPath": "ku/img/未选中/help.png"
             },
             {
                 "pagePath": "page/news/e",
                 "text": "动态",
-                "selectedIconPath": "ku/img/1/news.png",
-                "iconPath": "ku/img/0/news.png"
+                "selectedIconPath": "ku/img/已选中/news.png",
+                "iconPath": "ku/img/未选中/news.png"
             },
             {
                 "pagePath": "page/info/e",
                 "text": "信息",
-                "selectedIconPath": "ku/img/1/info.png",
-                "iconPath": "ku/img/0/info.png"
+                "selectedIconPath": "ku/img/已选中/info.png",
+                "iconPath": "ku/img/未选中/info.png"
             }
         ]
     },
