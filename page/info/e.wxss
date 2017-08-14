@@ -1,0 +1,23 @@
+.top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100rpx;
+}
+.top image {
+    background: red;
+    width: 24rpx;
+    height: 40rpx;
+}
+.top text {
+    width: 418rpx;
+    font-size: 24rpx;
+}
+
+.choose .checkbox {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}

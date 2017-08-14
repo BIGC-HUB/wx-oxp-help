@@ -1,6 +1,8 @@
 {
     "pages": [
-        "page/index/e"
+        "page/help/e",
+        "page/news/e",
+        "page/info/e"
     ],
     "window": {
         "enablePullDownRefresh": true,
@@ -8,6 +10,28 @@
         "navigationBarBackgroundColor": "#FFF",
         "navigationBarTitleText": "Oxpecker",
         "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "page/help/e",
+                "text": "求助",
+                "selectedIconPath": "ku/img/1/help.png",
+                "iconPath": "ku/img/0/help.png"
+            },
+            {
+                "pagePath": "page/news/e",
+                "text": "动态",
+                "selectedIconPath": "ku/img/1/news.png",
+                "iconPath": "ku/img/0/news.png"
+            },
+            {
+                "pagePath": "page/info/e",
+                "text": "信息",
+                "selectedIconPath": "ku/img/1/info.png",
+                "iconPath": "ku/img/0/info.png"
+            }
+        ]
     },
     "networkTimeout": {
         "request": 6000,
