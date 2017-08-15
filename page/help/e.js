@@ -66,6 +66,10 @@ Page({
                         text: '生命危机',
                         checked: ''
                     },
+                    {
+                        text: '有人失踪',
+                        checked: ''
+                    },
                 ],
             },
             {
@@ -88,17 +92,55 @@ Page({
                         text: '帐篷',
                         checked: ''
                     },
+                    {
+                        text: '衣服',
+                        checked: ''
+                    },
                 ],
             },
             {
                 checked: '',
                 name: '人员被困',
-                arr: [],
+                arr: [
+                    {
+                        text: '道路中断',
+                        checked: ''
+                    },
+                    {
+                        text: '有落石',
+                        checked: ''
+                    },
+                    {
+                        text: '车辆事故',
+                        checked: ''
+                    },
+                    {
+                        text: '桥梁坍塌',
+                        checked: ''
+                    },
+                    {
+                        text: '道路设施损坏',
+                        checked: ''
+                    },
+                ],
             },
             {
                 checked: '',
                 name: '其他',
-                arr: [],
+                arr: [
+                    {
+                        text: '需要人手',
+                        checked: ''
+                    },
+                    {
+                        text: '停电',
+                        checked: ''
+                    },
+                    {
+                        text: '停水',
+                        checked: ''
+                    },
+                ],
             },
         ],
         info: [

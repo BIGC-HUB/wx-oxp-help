@@ -43,7 +43,7 @@ page {
 .choose-tips {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 20rpx 0 10rpx;
     border-bottom: 1px solid #e5e5e5;
 }

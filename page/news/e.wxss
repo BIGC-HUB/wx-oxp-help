@@ -43,6 +43,12 @@ page {
     color: #1e1e1e;
 }
 .one-location {
+    /* 禁止 换行 */
+    white-space: nowrap;
+    /* 隐藏 超出部分 */
+    overflow: hidden;
+    /* 省略号 替代 */
+    text-overflow: ellipsis;
     margin-top: 12rpx;
 }
 .one-content {
@@ -55,7 +61,7 @@ page {
     margin-top: 30rpx;
     width: 700rpx;
     height: 524rpx;
-    background: #d8d8d8;
+    background: #F5F5F5;
 }
 .one-imgs image {
     width: 700rpx;
