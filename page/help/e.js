@@ -118,6 +118,7 @@ Page({
                 val: '511025199001012345',
             },
         ],
+        user: {},
     },
     // 刷新
     onPullDownRefresh() {
@@ -131,19 +132,10 @@ Page({
         //
     },
     onLoad() {
-        // 登陆
-        wx.BaaS.login().then((res) => {
-            let uid = wx.BaaS.storage.get('uid')
-            wx.BaaS.getUserInfo({
-                userID: uid
-            }).then(res => {
-                // log('用户数据:', res)
-            })
-        }, (err) => {
-            log(err)
-        })
+        //
     },
     onShow() {
+        // 位置
         let that = this
         wx.getLocation({
             type: "gcj02",
@@ -174,6 +166,40 @@ Page({
                 })
             },
             fail: (err) => { }
+        })
+        // 登陆
+        let callback = function(res) {
+            that.setData({
+                user: res.data
+            })
+        }
+        wx.login({
+            success: function(res) {
+                let code = res.code
+                let host = "https://wxapp.ucloudtech.com:1337"
+                wx.getUserInfo({
+                    success: function(res) {
+                        wx.request({
+                            url: host + '/login/access',
+                            data: {
+                                wxcode: code,
+                                rawdata: res.rawData,
+                            },
+                            method: "POST",
+                            header: {
+                                "Content-Type": "application/x-www-form-urlencoded",
+                            },
+                            success: callback,
+                            fail: function(res) {
+                                console.log(res)
+                            },
+                            complete: function() {
+                                //
+                            },
+                        })
+                    }
+                })
+            }
         })
     },
     bindType(e) {
@@ -269,7 +295,8 @@ Page({
             content: o.content,
             phone: o.phone,
             idcard: o.idcard,
-            imgurls: JSON.stringify(e.imgs)
+            imgurls: JSON.stringify(e.imgs),
+            user: JSON.stringify(e.user),
         }
         log(data)
         // wx.showModal({
