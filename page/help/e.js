@@ -12,7 +12,7 @@ let time = function(z = new Date()) {
     if (Month.length === 1) {
         Month = '0' + Month
     }
-    return `${Year}-${Month}-${Day} ${Hour}:${Minute} 星期${Week}`
+    return `${Hour}:${Minute}/${Day}/${Month}/${Year}`
 }
 Page({
     // 数据
@@ -23,6 +23,12 @@ Page({
             text: time(),
             time: String( Date.now() ),
         },
+        tips: ['出血', '骨折', '有人受伤', '被压',],
+        imgs: [
+            '../news/img/0.jpg',
+            '../news/img/1.jpg',
+            '../news/img/2.jpg',
+        ],
         choose: [
             {
                 now: true,
@@ -111,6 +117,11 @@ Page({
         let choose = this.data.choose
         choose.forEach(function(e, i) {
             if (i === id) {
+                if (e.checked === 'true') {
+                    e.checked = ''
+                } else {
+                    e.checked = 'true'
+                }
                 e.now = true
             } else {
                 e.now = false

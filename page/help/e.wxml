@@ -5,27 +5,27 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
     <view class="choose">
         <checkbox-group name="type">
-            <block wx:for="{{choose}}" wx:key="key" >
-                <view wx:if="{{item.now === true}}">
+            <block wx:for="{{choose}}" wx:for-item="e" wx:key="key" >
+                <view wx:if="{{e.now === true}}">
                     <view class="choose-checkbox choose-checked" bindtap="bindType" data-id="{{index}}">
-                        <label name="{{item.name}}">
-                            <text> {{item.name}} </text>
-                            <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+                        <label name="{{e.name}}">
+                            <text> {{e.name}} </text>
+                            <checkbox value="{{e.name}}" checked="{{e.checked}}" />
                         </label>
                     </view>
                     <view class="choose-tips" >
-                        <block wx:for="{{item.arr}}" wx:key="key" >
+                        <block wx:for="{{e.arr}}" wx:for-item="e" wx:key="key" >
                             <view class="choose-tip">
-                                <text> {{item}} </text>
+                                <text> {{e}} </text>
                             </view>
                         </block>
                     </view>
                 </view>
                 <view wx:else >
                     <view class="choose-checkbox" bindtap="bindType" data-id="{{index}}">
-                        <label name="{{item.name}}">
-                            <text> {{item.name}} </text>
-                            <checkbox value="{{item.name}}"/>
+                        <label name="{{e.name}}">
+                            <text> {{e.name}} </text>
+                            <checkbox value="{{e.name}}" checked="{{e.checked}}" />
                         </label>
                     </view>
                 </view>
@@ -36,15 +36,38 @@
     <view class="words">
         <textarea name="content" placeholder="文字描述" maxlength="72" />
     </view>
+    <!-- 添加图片 -->
+    <view class="imgs">
+        <text> 添加图片 </text>
+        <view class="imgs-arr">
+            <block wx:for="{{imgs}}" wx:key="key" >
+                <image src="{{item}}" mode="aspectFill"/>
+            </block>
+        </view>
+        <image src="img/添加图片.png" />
+    </view>
+    <!-- 日期 -->
+    <view  class="date"> {{date.text}} </view>
+    <!-- 已选择标签 -->
+    <view  class="tips">
+        <text class="tips-title" > 已选择求助类型 </text>
+        <view class="tips-box" >
+            <block wx:for="{{tips}}" wx:for-item="e" wx:key="key" >
+                <view class="choose-tip">
+                    <text> {{e}} </text>
+                </view>
+            </block>
+        </view>
+     </view>
     <!-- 个人信息 -->
-    <!-- <view class="info">
-        <view> 个人信息——仅用于救援，且只用在初次填写 </view>
+    <view class="info">
+        <view class="info-title"> 个人信息 </view>
         <block wx:for="{{info}}" wx:for-item="e" wx:key="key" >
-            <view>
-                <view> {{e.name}} </view>
+            <view class="info-box">
+                <text> {{e.name}} </text>
                 <input name="{{e.key}}" value="{{e.val}}" />
             </view>
         </block>
-        <button type="primary" formType="submit"> 发布 </button>
-    </view> -->
+        <button class="info-submit" type="primary" formType="submit"> 发布 </button>
+    </view>
 </form>
