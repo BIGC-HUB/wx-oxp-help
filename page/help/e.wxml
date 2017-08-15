@@ -1,6 +1,6 @@
 <view class="top">
     <image src="img/定位.png" />
-    <text> {{location}} </text>
+    <text> {{location.address}} </text>
 </view>
 <form bindsubmit="formSubmit" bindreset="formReset">
     <view class="choose">
@@ -15,8 +15,15 @@
                     </view>
                     <view class="choose-tips" >
                         <block wx:for="{{e.arr}}" wx:for-item="e" wx:key="key" >
-                            <view class="choose-tip">
-                                <text> {{e}} </text>
+                            <view wx:if="{{e.checked === 'true'}}">
+                                <view class="choose-tip" bindtap="bindTip" data-name="{{e.text}}" style="background:#e44240">
+                                    <text> {{e.text}} </text>
+                                </view>
+                            </view>
+                            <view wx:else >
+                                <view class="choose-tip" bindtap="bindTip" data-name="{{e.text}}">
+                                    <text> {{e.text}} </text>
+                                </view>
                             </view>
                         </block>
                     </view>
@@ -44,7 +51,7 @@
                 <image src="{{item}}" mode="aspectFill"/>
             </block>
         </view>
-        <image src="img/添加图片.png" />
+        <image src="img/添加图片.png" bindtap="bindChooseImg"/>
     </view>
     <!-- 日期 -->
     <view  class="date"> {{date.text}} </view>
@@ -53,7 +60,7 @@
         <text class="tips-title" > 已选择求助类型 </text>
         <view class="tips-box" >
             <block wx:for="{{tips}}" wx:for-item="e" wx:key="key" >
-                <view class="choose-tip">
+                <view class="tips-tip">
                     <text> {{e}} </text>
                 </view>
             </block>

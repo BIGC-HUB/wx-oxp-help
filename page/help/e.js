@@ -1,4 +1,5 @@
 const log = console.log.bind(console, '>>>')
+const config = require('../../ku/js/config.js')
 let time = function(z = new Date()) {
     let x = z.toString()
     let zh = '天一二三四五六'
@@ -18,28 +19,76 @@ Page({
     // 数据
     data: {
         // 日期
-        location: '正在定位…',
+        location: {
+            address: '正在定位…',
+        },
         date: {
             text: time(),
             time: String( Date.now() ),
         },
-        tips: ['出血', '骨折', '有人受伤', '被压',],
+        tips: [],
         imgs: [
-            '../news/img/0.jpg',
-            '../news/img/1.jpg',
-            '../news/img/2.jpg',
+            // '../news/img/0.jpg',
+            // '../news/img/1.jpg',
+            // '../news/img/2.jpg',
         ],
         choose: [
             {
                 now: true,
                 checked: '',
                 name: '医疗急救',
-                arr: ['出血', '骨折', '有人受伤', '被压', '无法行动', '意识不清', '生命危机'],
+                arr: [
+                    {
+                        text: '出血',
+                        checked: ''
+                    },
+                    {
+                        text: '骨折',
+                        checked: ''
+                    },
+                    {
+                        text: '有人受伤',
+                        checked: ''
+                    },
+                    {
+                        text: '被压',
+                        checked: ''
+                    },
+                    {
+                        text: '无法行动',
+                        checked: ''
+                    },
+                    {
+                        text: '意识不清',
+                        checked: ''
+                    },
+                    {
+                        text: '生命危机',
+                        checked: ''
+                    },
+                ],
             },
             {
                 checked: '',
                 name: '物资需要',
-                arr: ['饮用水', '食物', '毛毯', '帐篷'],
+                arr: [
+                    {
+                        text: '饮用水',
+                        checked: ''
+                    },
+                    {
+                        text: '食物',
+                        checked: ''
+                    },
+                    {
+                        text: '毛毯',
+                        checked: ''
+                    },
+                    {
+                        text: '帐篷',
+                        checked: ''
+                    },
+                ],
             },
             {
                 checked: '',
@@ -94,23 +143,38 @@ Page({
             log(err)
         })
     },
-    formSubmit(e) {
-        let o = e.detail.value
-        o.date = this.data.date.time
-        log(o)
-        // wx.showModal({
-        //     title: "确认发布吗？",
-        //     content: "需勾选的责任说明",
-        //     cancelColor: "#9B9B9B",
-        //     confirmColor: "#FF633D",
-        //     success: function(res) {
-        //         if (res.confirm) {
-        //             log('确认')
-        //         } else if (res.cancel) {
-        //             log('取消')
-        //         }
-        //     }
-        // })
+    onShow() {
+        let that = this
+        wx.getLocation({
+            type: "gcj02",
+            success: function(res) {
+                if (res.accuracy > 40) {
+                    // showToast
+                    log('当前GPS信号弱，请行驶到开阔地带')
+                }
+                let location = res
+                location.now = [res.longitude, res.latitude].join(',')
+                wx.request({
+                    url: 'https://restapi.amap.com/v3/geocode/regeo?parameters',
+                    data: {
+                        key: config.web,
+                        location: location.now,
+                    },
+                    method: "GET",
+                    header: {
+                        "Content-Type": "application/json",
+                    },
+                    success: function(res) {
+                        location.address = res.data.regeocode.formatted_address
+                        that.setData({
+                            location: location
+                        })
+                    },
+                    fail: (err) => { }
+                })
+            },
+            fail: (err) => { }
+        })
     },
     bindType(e) {
         let id = e.currentTarget.dataset.id
@@ -132,6 +196,94 @@ Page({
         })
     },
     bindTip(e) {
-        log(e)
+        let name = e.target.dataset.name
+        // tips
+        let tips = this.data.tips
+        let bool = true
+        for(let i = 0; i < tips.length; i++) {
+            let e = tips[i]
+            if (e === name) {
+                bool = false
+                tips.splice(i, 1)
+            }
+        }
+        if (bool) {
+            tips.push(name)
+        }
+        // choose
+        let choose = this.data.choose
+        for (let i of choose) {
+            if (i.now) {
+                for (let e of i.arr) {
+                    if (e.text === name) {
+                        if (e.checked === '') {
+                            e.checked = 'true'
+                        } else {
+                            e.checked = ''
+                        }
+                    }
+                }
+            }
+        }
+        this.setData({
+            choose: choose,
+            tips: tips,
+        })
+    },
+    bindChooseImg() {
+        let that = this
+        wx.chooseImage({
+            count: 3, // 默认9
+            // sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+            // sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+            success: function(res) {
+                let arr = res.tempFilePaths
+                let temp = []
+                for (let e of arr) {
+                    wx.BaaS.uploadFile({
+                        filePath: e,
+                    }).then((res) => {
+                        temp.push(JSON.parse(res.data).path)
+                        if (arr.length === temp.length) {
+                            that.setData({
+                                imgs: temp
+                            })
+                        }
+                    }, (err) => {
+                        // 微信自身系统级别错误
+                        log(res)
+                    })
+                }
+
+            }
+        })
+    },
+    formSubmit(event) {
+        let o = event.detail.value
+        let e = this.data
+        let data = {
+            types: JSON.stringify(e.choose),
+            location: JSON.stringify(e.location),
+            date: e.date.time,
+            name: o.name,
+            content: o.content,
+            phone: o.phone,
+            idcard: o.idcard,
+            imgurls: JSON.stringify(e.imgs)
+        }
+        log(data)
+        // wx.showModal({
+        //     title: "确认发布吗？",
+        //     content: "需勾选的责任说明",
+        //     cancelColor: "#9B9B9B",
+        //     confirmColor: "#FF633D",
+        //     success: function(res) {
+        //         if (res.confirm) {
+        //             log('确认')
+        //         } else if (res.cancel) {
+        //             log('取消')
+        //         }
+        //     }
+        // })
     },
 })

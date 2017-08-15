@@ -52,11 +52,14 @@ page {
     justify-content: center;
     align-items: center;
     border-radius: 200rpx;
-    background-color: #e44240;
+    background: #b4b4b4;
     color: #FFF;
     margin: 20rpx;
     padding: 6rpx 28rpx;
     height: 52rpx;
+}
+.choose-tip text {
+    pointer-events: none;
 }
 
 .words {
@@ -113,11 +116,23 @@ page {
 }
 .tips-box {
     background: white;
+    min-height: 88rpx;
     border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+.tips-tip {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 200rpx;
+    background: #e44240;
+    color: #FFF;
+    margin: 20rpx;
+    padding: 6rpx 28rpx;
+    height: 52rpx;
 }
 
 .info-title {
