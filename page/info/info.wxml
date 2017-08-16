@@ -1,4 +1,4 @@
-<view class="line"></view>
+
 <view wx:for="{{teamData}}" wx:key="key">
   <view class="info_top">
     <view class="icon_bg">
@@ -6,7 +6,6 @@
     </view>
     <text class="team_name">{{item.teamName}}</text>
   </view>
-  <view class="line"></view>
   <view class="info_bottom">
     <text>救援热线</text>
     <text class="team_phone">{{item.teamPhone}}</text>

@@ -220,6 +220,8 @@ Page({
         })
         // 登陆
         let callback = function(res) {
+            // 本地存储
+            wx.setStorageSync('user', res.data)
             that.setData({
                 user: res.data
             })

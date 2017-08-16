@@ -1,4 +1,5 @@
 const log = console.log.bind(console, '>>>')
+const config = require('../../ku/js/config.js')
 let time = function(z = new Date()) {
     let x = z.toString()
     let zh = '天一二三四五六'
@@ -52,7 +53,27 @@ Page({
         //
     },
     onLoad() {
-
+        let user = wx.getStorageSync('user')
+        wx.request({
+            url: config.url + '/events',
+            data: {
+                page: 0
+            },
+            method: 'POST',
+            header: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "ucloudtech_3rd_key": user.session_key
+            },
+            success: function(res) {
+                console.log(res)
+            },
+            fail: function(res) {
+                console.log(res)
+            },
+            complete: function() {
+                console.log('123123123')
+            }
+        })
     },
     bindPhone(e) {
         wx.makePhoneCall({

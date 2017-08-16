@@ -1,12 +1,20 @@
-const data = [{
-    teamPhone: '111111',
-    teamName: "蓝天救援队",
-    teamIcon: "img/add.png"
-}, {
-    teamPhone: '11111111111',
-    teamName: "蓝天救援队",
-    teamIcon: "img/add.png"
-}]
+const data = [
+    {
+        teamPhone: '400 600 9958',
+        teamName: "蓝天救援队",
+        teamIcon: "",
+    },
+    {
+        teamPhone: '12301',
+        teamName: "国家旅游服务",
+        teamIcon: ""
+    },
+    {
+        teamPhone: '0837-7739529',
+        teamName: "九寨沟管理局24小时",
+        teamIcon: ""
+    },
+]
 
 Page({
     data: {
