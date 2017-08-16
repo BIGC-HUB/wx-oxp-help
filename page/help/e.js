@@ -183,7 +183,12 @@ Page({
         //
     },
     onLoad() {
-        //
+        // 登陆 知晓云
+        wx.BaaS.login().then((res) => {
+            // log(res, '登录成功')
+        }, (err) => {
+            // log(err, '系统级错误')
+        })
     },
     onShow() {
         // 位置
@@ -330,7 +335,7 @@ Page({
                         }
                     }, (err) => {
                         // 微信自身系统级别错误
-                        log(res)
+                        log(err, '图片上传请在手机端')
                     })
                 }
 
@@ -340,6 +345,7 @@ Page({
     formSubmit(event) {
         let o = event.detail.value
         let e = this.data
+        log(e.imgs)
         let data = {
             types: JSON.stringify(e.choose),
             location: JSON.stringify(e.location),

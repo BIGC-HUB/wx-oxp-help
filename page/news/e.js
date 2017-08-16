@@ -13,33 +13,12 @@ let time = function(z = new Date()) {
     if (Month.length === 1) {
         Month = '0' + Month
     }
-    return `${Year}-${Month}-${Day} ${Hour}:${Minute} 星期${Week}`
+    return `${Hour}:${Minute}/${Day}/${Month}/${Year}`
 }
 Page({
     // 数据
     data: {
-        arr: [
-            {
-                time: "09:41/10/08",
-                content: "ndjhdjhajkds",
-                name: "李梅梅",
-                phone: "18494390349",
-                imgurls: ['img/0.jpg', 'img/1.jpg', 'img/2.jpg'],
-                location: {
-                    name: "四川省成都市武侯区益州大道1800号",
-                }
-            },
-            {
-                time: "09:41/10/08",
-                content: "张飞张飞张飞张飞张飞",
-                name: "张飞",
-                phone: "123124",
-                imgurls: ['img/0.jpg', 'img/1.jpg', 'img/2.jpg'],
-                location: {
-                    name: "区益州大道1800号",
-                }
-            },
-        ],
+        arr: []
     },
     // 刷新
     onPullDownRefresh() {
@@ -53,6 +32,7 @@ Page({
         //
     },
     onLoad() {
+        let that = this
         let user = wx.getStorageSync('user')
         wx.request({
             url: config.url + '/events',
@@ -64,15 +44,27 @@ Page({
                 "Content-Type": "application/x-www-form-urlencoded",
                 "ucloudtech_3rd_key": user.session_key
             },
-            success: function(res) {
-                console.log(res)
-            },
-            fail: function(res) {
-                console.log(res)
-            },
-            complete: function() {
-                console.log('123123123')
+            success: that.init
+        })
+    },
+    init(res) {
+        let temp = []
+        if (res.data.code === 200) {
+            let arr = res.data.data
+            for (let e of arr) {
+                let o = {
+                    time: time(new Date(Number(e.date))),
+                    content: e.content,
+                    name: e.name,
+                    phone: e.phone,
+                    imgurls: e.imgurls,
+                    location:  e.location,
+                }
+                temp.push(o)
             }
+        }
+        this.setData({
+            arr: temp
         })
     },
     bindPhone(e) {
