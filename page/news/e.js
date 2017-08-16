@@ -54,4 +54,15 @@ Page({
     onLoad() {
 
     },
+    bindPhone(e) {
+        wx.makePhoneCall({
+            phoneNumber: e.target.dataset.phone,
+            success: function() {
+                console.log("拨打电话成功！")
+            },
+            fail: function() {
+                console.log("拨打电话失败！")
+            }
+        })
+    },
 })

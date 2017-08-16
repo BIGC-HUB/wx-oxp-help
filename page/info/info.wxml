@@ -1,5 +1,5 @@
 <view class="line"></view>
-<view wx:for="{{teamData}}">
+<view wx:for="{{teamData}}" wx:key="key">
   <view class="info_top">
     <view class="icon_bg">
       <image class="icon" src="{{item.teamIcon}}"></image>

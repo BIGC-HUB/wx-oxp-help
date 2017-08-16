@@ -13,7 +13,7 @@
             </view>
             <view class="one-content" > {{e.content}} </view>
             <swiper class="one-imgs" indicator-dots autoplay>
-                <block wx:for="{{e.imgurls}}">
+                <block wx:for="{{e.imgurls}}" wx:key="key" >
                     <swiper-item>
                         <image src="{{item}}" mode="aspectFit" />
                     </swiper-item>
@@ -27,7 +27,7 @@
                     <text>骨折</text>
                 </view>
             </view>
-            <view class="one-phone" >
+            <view class="one-phone" data-phone="{{e.phone}}" bindtap="bindPhone">
                 <text> 联系他： </text>
                 <text> {{e.phone}} </text>
                 <image src="img/拨打电话.png" />

@@ -13,8 +13,6 @@ Page({
         teamData: data,
     },
     callPhone(cb) {
-        console.log(cb.target.dataset.id)
-        console.log(data[cb.target.dataset.id].teamPhone)
         wx.makePhoneCall({
             phoneNumber: data[cb.target.dataset.id].teamPhone,
             success: function() {

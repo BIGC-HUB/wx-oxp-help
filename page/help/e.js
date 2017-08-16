@@ -164,6 +164,12 @@ Page({
             },
         ],
         user: {},
+        focus: {
+            content: false,
+            name: false,
+            idcard: false,
+            phone: false,
+        }
     },
     // 刷新
     onPullDownRefresh() {
@@ -343,36 +349,62 @@ Page({
             imgurls: JSON.stringify(e.imgs),
             user: JSON.stringify(e.user),
         }
-        wx.request({
-            url: config.url + '/report',
-            data: data,
-            method: 'POST',
-            header: {
-                "Content-Type": "application/x-www-form-urlencoded",
-                "ucloudtech_3rd_key": e.user.session_key
-            },
-            success: function(res) {
-                console.log(res)
-            },
-            fail: function(res) {
-                console.log(res)
-            },
-            complete: function() {
-                // complete
+        let focus = this.data.focus
+        // 检查必填
+        let bool = true
+        for (let i of ['content','name', 'phone', 'idcard',]) {
+            if (o[i] === '') {
+                focus[i] = true
+                this.setData({
+                    focus: focus
+                })
+                bool = false
+                break
+            } else {
+                focus[i] = false
             }
-        })
-        // wx.showModal({
-        //     title: "确认发布吗？",
-        //     content: "需勾选的责任说明",
-        //     cancelColor: "#9B9B9B",
-        //     confirmColor: "#FF633D",
-        //     success: function(res) {
-        //         if (res.confirm) {
-        //             log('确认')
-        //         } else if (res.cancel) {
-        //             log('取消')
-        //         }
-        //     }
-        // })
+        }
+        if (bool) {
+            let callback = function(res) {
+                if (res.confirm) {
+                    wx.request({
+                        url: config.url + '/report',
+                        data: data,
+                        method: 'POST',
+                        header: {
+                            "Content-Type": "application/x-www-form-urlencoded",
+                            "ucloudtech_3rd_key": e.user.session_key
+                        },
+                        success: function(res) {
+                            if (res.data.code === 200) {
+                                wx.showModal({
+                                    title: '恭喜您，发布成功！',
+                                    content: '感谢您的支持，期待给您更好的服务☺',
+                                    showCancel: false,
+                                    confirmText: "知道了",
+                                    confirmColor: "#7878FF",
+                                    success: function(res) {
+                                        if (res.confirm) {
+                                            wx.reLaunch({
+                                                url: "../news/e"
+                                            })
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    })
+                } else if (res.cancel) {
+                    log('取消')
+                }
+            }
+            wx.showModal({
+                title: "确认发布吗？",
+                content: "需勾选的责任说明",
+                cancelColor: "#9B9B9B",
+                confirmColor: "#FF633D",
+                success: callback,
+            })
+        }
     },
 })

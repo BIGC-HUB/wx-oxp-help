@@ -90,6 +90,9 @@ page {
     align-items: center;
     padding: 20rpx 0;
 }
+.one-phone text, .one-phone image {
+    pointer-events: none;
+}
 .one-phone text:nth-child(1) {
     margin-right: 26rpx;
 }

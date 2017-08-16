@@ -41,7 +41,7 @@
     </view>
     <!-- 文字描述 -->
     <view class="words">
-        <textarea name="content" placeholder="添加文字和图片" maxlength="72" />
+        <textarea focus="{{focus.content}}" name="content" placeholder="添加文字和图片" maxlength="72" />
     </view>
     <!-- 添加图片 -->
     <view class="imgs">
@@ -71,7 +71,7 @@
         <block wx:for="{{info}}" wx:for-item="e" wx:key="key" >
             <view class="info-box">
                 <text> {{e.name}} </text>
-                <input type="{{e.type}}" name="{{e.key}}" value="{{e.val}}" />
+                <input focus="{{focus[e.key]}}" type="{{e.type}}" name="{{e.key}}" value="{{e.val}}" />
             </view>
         </block>
     </view>
