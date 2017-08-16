@@ -145,19 +145,22 @@ Page({
         ],
         info: [
             {
+                type: 'text',
                 name: '个人姓名',
                 key: 'name',
-                val: '李梅梅',
+                val: '',
             },
             {
+                type: 'number',
                 name: '手机号码',
                 key: 'phone',
-                val: '18494390349',
+                val: '',
             },
             {
+                type: 'idcard',
                 name: '身份证号',
                 key: 'idcard',
-                val: '511025199001012345',
+                val: '',
             },
         ],
         user: {},
@@ -340,7 +343,24 @@ Page({
             imgurls: JSON.stringify(e.imgs),
             user: JSON.stringify(e.user),
         }
-        log(data)
+        wx.request({
+            url: config.url + '/report',
+            data: data,
+            method: 'POST',
+            header: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "ucloudtech_3rd_key": e.user.session_key
+            },
+            success: function(res) {
+                console.log(res)
+            },
+            fail: function(res) {
+                console.log(res)
+            },
+            complete: function() {
+                // complete
+            }
+        })
         // wx.showModal({
         //     title: "确认发布吗？",
         //     content: "需勾选的责任说明",

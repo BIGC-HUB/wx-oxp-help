@@ -71,7 +71,7 @@
         <block wx:for="{{info}}" wx:for-item="e" wx:key="key" >
             <view class="info-box">
                 <text> {{e.name}} </text>
-                <input name="{{e.key}}" value="{{e.val}}" />
+                <input type="{{e.type}}" name="{{e.key}}" value="{{e.val}}" />
             </view>
         </block>
     </view>
