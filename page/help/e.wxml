@@ -1,5 +1,5 @@
 <view class="top">
-    <image src="img/定位.png" />
+    <image src="img/localtion.png" />
     <text> {{location.address}} </text>
 </view>
 <form bindsubmit="formSubmit" bindreset="formReset">
@@ -50,7 +50,7 @@
                 <image class="imgs-img" src="{{item}}" mode="aspectFill"/>
             </block>
         </view>
-        <image class="imgs-btn" src="img/添加图片.png" bindtap="bindChooseImg"/>
+        <image class="imgs-btn" src="img/addimg.png" bindtap="bindChooseImg"/>
     </view>
     <!-- 日期 -->
     <view  class="date"> {{date.text}} </view>

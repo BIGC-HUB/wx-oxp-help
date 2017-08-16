@@ -22,6 +22,7 @@ Page({
     },
     // 刷新
     onPullDownRefresh() {
+        this.onLoad()
         wx.stopPullDownRefresh()
     },
     // 分享

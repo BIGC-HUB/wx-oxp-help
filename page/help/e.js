@@ -408,7 +408,7 @@ Page({
             }
             wx.showModal({
                 title: "确认发布吗？",
-                content: "需勾选的责任说明",
+                content: "责任说明：",
                 cancelColor: "#9B9B9B",
                 confirmColor: "#FF633D",
                 success: callback,

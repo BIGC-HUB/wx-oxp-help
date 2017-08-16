@@ -30,7 +30,7 @@
             <view class="one-phone" data-phone="{{e.phone}}" bindtap="bindPhone">
                 <text> 联系他： </text>
                 <text> {{e.phone}} </text>
-                <image src="img/拨打电话.png" />
+                <image src="img/call.png" />
             </view>
         </view>
     </view>

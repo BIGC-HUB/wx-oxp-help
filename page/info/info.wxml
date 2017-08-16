@@ -10,7 +10,7 @@
     <text>救援热线</text>
     <text class="team_phone">{{item.teamPhone}}</text>
     <view class="call_bg">
-      <image class="call" bindtap="callPhone" data-id="{{index}}" src="img/拨打电话.png"></image>
+      <image class="call" bindtap="callPhone" data-id="{{index}}" src="img/call.png"></image>
     </view>
 
   </view>
