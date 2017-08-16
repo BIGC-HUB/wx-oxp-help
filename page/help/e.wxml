@@ -71,7 +71,7 @@
         <block wx:for="{{info}}" wx:for-item="e" wx:key="key" >
             <view class="info-box">
                 <text> {{e.name}} </text>
-                <input focus="{{focus[e.key]}}" type="{{e.type}}" name="{{e.key}}" value="{{e.val}}" />
+                <input focus="{{focus[e.key]}}" maxlength="{{e.max}}" type="{{e.type}}" name="{{e.key}}" value="{{e.val}}" />
             </view>
         </block>
     </view>

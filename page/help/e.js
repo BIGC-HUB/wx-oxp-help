@@ -145,18 +145,21 @@ Page({
         ],
         info: [
             {
+                max: 60,
                 type: 'text',
                 name: '个人姓名',
                 key: 'name',
                 val: '',
             },
             {
+                max: 11,
                 type: 'number',
                 name: '手机号码',
                 key: 'phone',
                 val: '',
             },
             {
+                max: 18,
                 type: 'idcard',
                 name: '身份证号',
                 key: 'idcard',
@@ -343,9 +346,9 @@ Page({
         })
     },
     formSubmit(event) {
+        let that = this
         let o = event.detail.value
-        let e = this.data
-        log(e.imgs)
+        let e = that.data
         let data = {
             types: JSON.stringify(e.choose),
             location: JSON.stringify(e.location),
@@ -357,18 +360,44 @@ Page({
             imgurls: JSON.stringify(e.imgs),
             user: JSON.stringify(e.user),
         }
-        let focus = this.data.focus
+        let focus = that.data.focus
         // 检查必填
         let bool = true
         for (let i of ['content','name', 'phone', 'idcard',]) {
             if (o[i] === '') {
                 focus[i] = true
-                this.setData({
+                that.setData({
                     focus: focus
                 })
                 bool = false
                 break
             } else {
+                if (i === 'phone') {
+                    if ( !/^1[34578]\d{9}$/.test(o[i]) ) {
+                        bool = false
+                        wx.showModal({
+                            title: '请输入正确的手机号',
+                            content: '格式为13位数字',
+                            showCancel: false,
+                            confirmText: "知道了",
+                            confirmColor: "#7878FF",
+                        })
+                        break
+                    }
+                }
+                else if (i === 'idcard') {
+                    if ( !/^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$/.test(o[i]) ) {
+                        bool = false
+                        wx.showModal({
+                            title: '请输入正确的身份证号',
+                            content: '格式为18位数字',
+                            showCancel: false,
+                            confirmText: "知道了",
+                            confirmColor: "#7878FF",
+                        })
+                        break
+                    }
+                }
                 focus[i] = false
             }
         }
