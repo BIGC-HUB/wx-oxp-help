@@ -27,27 +27,26 @@ page {
     justify-content: space-between;
     width: calc(100% - 48rpx);
 }
-.empty{
+.empty {
   height: 44rpx;
   background-color: #efeff4;
   width: 100%;
 }
-.call{
+.call {
   height: 48rpx;
   width: 48rpx;
 }
-.icon{
+.icon {
   height: 48rpx;
   width: 48rpx
 }
-.icon_bg{
+.icon_bg {
   height:80rpx;
   width: 300rpx;
   margin-top: 14rpx;
   margin-left: 38rpx;
-  background-color:rgba(216, 216, 216, 0.5);
 }
-.team_name{
+.team_name {
     /* 禁止 换行 */
     white-space: nowrap;
     /* 隐藏 超出部分 */

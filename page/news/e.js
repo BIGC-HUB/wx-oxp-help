@@ -60,11 +60,12 @@ Page({
                     phone: e.phone,
                     imgurls: e.imgurls,
                     location:  e.location,
+                    user: e.user,
                 }
                 temp.push(o)
             }
         }
-        log(temp, '德玛西亚')
+        log(temp[0])
         this.setData({
             arr: temp
         })

@@ -2,7 +2,7 @@
     <view class="one">
         <view class="one-box">
             <view class="one-top">
-                <image class="one-img" src="" />
+                <image class="one-img" src="{{e.user.avatar}}" />
                 <view class="one-info">
                     <view class="one-info-box">
                         <text class="one-name" >{{e.name}}</text>
@@ -12,13 +12,15 @@
                 </view>
             </view>
             <view class="one-content" > {{e.content}} </view>
-            <swiper class="one-imgs" indicator-dots autoplay>
-                <block wx:for="{{e.imgurls}}" wx:key="key" >
-                    <swiper-item>
-                        <image src="{{item}}" mode="aspectFit" />
-                    </swiper-item>
-                </block>
-            </swiper>
+            <!-- <view wx:if="{{e.imgurls.length}}"> -->
+                <swiper class="one-imgs" indicator-dots autoplay>
+                    <block wx:for="{{e.imgurls}}" wx:key="key" >
+                        <swiper-item>
+                            <image src="{{item}}" mode="aspectFit" />
+                        </swiper-item>
+                    </block>
+                </swiper>
+            <!-- </view> -->
             <view class="one-tips" >
                 <view class="one-tip">
                     <text>生命危急</text>
