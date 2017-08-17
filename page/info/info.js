@@ -2,12 +2,12 @@ const data = [
     {
         teamPhone: '400 600 9958',
         teamName: "蓝天救援队",
-        teamIcon: "",
+        teamIcon: "img/blue_sky.png",
     },
     {
         teamPhone: '12301',
         teamName: "国家旅游服务",
-        teamIcon: ""
+        teamIcon: "img/12301.png"
     },
     {
         teamPhone: '0837-7739529',

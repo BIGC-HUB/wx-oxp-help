@@ -37,8 +37,8 @@ page {
   width: 48rpx;
 }
 .icon {
-  height: 48rpx;
-  width: 48rpx
+  height: 80rpx;
+  width: 300rpx
 }
 .icon_bg {
   height:80rpx;
