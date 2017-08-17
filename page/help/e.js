@@ -194,6 +194,9 @@ Page({
             // log(err, '系统级错误')
         })
     },
+    onReady() {
+        //
+    },
     onShow() {
         // 位置
         let that = this
@@ -222,7 +225,9 @@ Page({
                             location: location
                         })
                     },
-                    fail: (err) => { }
+                    fail: err => {
+                        log(err)
+                    }
                 })
             },
             fail: (err) => { }
@@ -236,11 +241,11 @@ Page({
             })
         }
         wx.login({
-            success: function(res) {
+            success(res) {
                 let code = res.code
                 let host = "https://wxapp.ucloudtech.com:1337"
                 wx.getUserInfo({
-                    success: function(res) {
+                    success(res) {
                         wx.request({
                             url: host + '/login/access',
                             data: {
@@ -252,15 +257,18 @@ Page({
                                 "Content-Type": "application/x-www-form-urlencoded",
                             },
                             success: callback,
-                            fail: function(res) {
+                            fail(res) {
                                 console.log(res)
                             },
-                            complete: function() {
-                                //
-                            },
                         })
+                    },
+                    fail(err) {
+                        log(err)
                     }
                 })
+            },
+            fail(err) {
+                log(err)
             }
         })
     },
@@ -436,6 +444,9 @@ Page({
                                     }
                                 })
                             }
+                        },
+                        fail: err => {
+                            log(err)
                         }
                     })
                 } else if (res.cancel) {

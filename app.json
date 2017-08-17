@@ -2,8 +2,7 @@
     "pages": [
         "page/help/e",
         "page/news/e",
-        "page/info/info",
-        "page/oxp/oxp"
+        "page/info/info"
     ],
     "window": {
         "enablePullDownRefresh": true,

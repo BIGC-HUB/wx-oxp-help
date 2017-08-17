@@ -45,7 +45,10 @@ Page({
                 "Content-Type": "application/x-www-form-urlencoded",
                 "ucloudtech_3rd_key": user.session_key
             },
-            success: that.init
+            success: that.init,
+            fail: err => {
+                log(err)
+            }
         })
     },
     init(res) {
@@ -65,7 +68,6 @@ Page({
                 temp.push(o)
             }
         }
-        log(temp[0])
         this.setData({
             arr: temp
         })
