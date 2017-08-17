@@ -64,6 +64,7 @@ Page({
                 temp.push(o)
             }
         }
+        log(temp, '德玛西亚')
         this.setData({
             arr: temp
         })

@@ -6,13 +6,9 @@
     </view>
     <text class="team_name">{{item.teamName}}</text>
   </view>
-  <view class="info_bottom">
-    <text>救援热线</text>
-    <text class="team_phone">{{item.teamPhone}}</text>
-    <view class="call_bg">
-      <image class="call" bindtap="callPhone" data-id="{{index}}" src="img/call.png"></image>
-    </view>
-
+  <view class="info_bottom" bindtap="callPhone" data-id="{{index}}">
+    <text class="team_phone">救援热线　　　{{item.teamPhone}}</text>
+    <image class="call" src="img/call.png"></image>
   </view>
   <view class="empty"></view>
 </view>

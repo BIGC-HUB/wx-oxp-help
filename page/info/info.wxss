@@ -10,29 +10,31 @@ page {
     justify-content: space-between;
 }
 .info_bottom{
+    padding: 0 30rpx;
     border-bottom: 1px solid #e5e5e5;
     border-top: 1px solid #e5e5e5;
     background: white;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 88rpx;
+}
+.info_bottom text, .info_bottom image {
+    pointer-events: none;
+}
+.team_phone {
+    display: inline-flex;
+    justify-content: space-between;
+    width: calc(100% - 48rpx);
 }
 .empty{
   height: 44rpx;
   background-color: #efeff4;
   width: 100%;
 }
-.call_bg{
- position: absolute;
- margin-right: 30rpx;
- left: 88%;
-}
 .call{
   height: 48rpx;
   width: 48rpx;
-}
-.team_phone{
-  margin-left: 66rpx;
 }
 .icon{
   height: 48rpx;
@@ -57,6 +59,5 @@ page {
     margin-right: 30rpx;
 }
 text{
-  margin-left: 30rpx;
   font-size: 34rpx;
 }
