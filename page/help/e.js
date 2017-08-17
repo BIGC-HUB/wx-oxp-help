@@ -187,12 +187,7 @@ Page({
         //
     },
     onLoad() {
-        // 登陆 知晓云
-        wx.BaaS.login().then((res) => {
-            // log(res, '登录成功')
-        }, (err) => {
-            // log(err, '系统级错误')
-        })
+
     },
     onReady() {
         //
@@ -346,9 +341,9 @@ Page({
                                 imgs: temp
                             })
                         }
-                    }, (err) => {
+                    }, err => {
                         // 微信自身系统级别错误
-                        log(err, '图片上传请在手机端')
+                        log(err, '知晓云错误')
                     })
                 }
 

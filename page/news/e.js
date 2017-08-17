@@ -46,7 +46,7 @@ Page({
                 "ucloudtech_3rd_key": user.session_key
             },
             success: that.init,
-            fail: err => {
+            fail(err) {
                 log(err)
             }
         })
