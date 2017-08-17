@@ -41,8 +41,8 @@
     </view>
     <!-- 文字描述 -->
     <view class="words">
-        <textarea focus="{{focus.content}}" name="content" placeholder="添加文字和图片" maxlength="72" />
-        <view class="words-n">72</view>
+        <textarea bindinput="bindInputWords" focus="{{focus.content}}" name="content" placeholder="添加文字和图片" maxlength="72" />
+        <view class="words-n">{{leftNumber}}/72</view>
     </view>
     <!-- 添加图片 -->
     <view class="imgs">

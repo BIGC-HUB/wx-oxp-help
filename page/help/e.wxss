@@ -77,9 +77,11 @@ page {
     height: 100%;
 }
 .words-n {
+    font-size: 28rpx;
+    color: #969696;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 20rpx;
+    right: 39rpx;
 }
 
 .imgs {

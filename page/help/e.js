@@ -172,7 +172,8 @@ Page({
             name: false,
             idcard: false,
             phone: false,
-        }
+        },
+        leftNumber: 0,
     },
     // 刷新
     onPullDownRefresh() {
@@ -343,6 +344,12 @@ Page({
                 }
 
             }
+        })
+    },
+    bindInputWords(e) {
+        let val = e.detail.value
+        this.setData({
+            leftNumber: val.length
         })
     },
     formSubmit(event) {
