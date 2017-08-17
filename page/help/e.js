@@ -245,11 +245,10 @@ Page({
         wx.login({
             success(res) {
                 let code = res.code
-                let host = "https://wxapp.ucloudtech.com:1337"
                 wx.getUserInfo({
                     success(res) {
                         wx.request({
-                            url: host + '/login/access',
+                            url: config.url + '/login/access',
                             data: {
                                 wxcode: code,
                                 rawdata: res.rawData,
