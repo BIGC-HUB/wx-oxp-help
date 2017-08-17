@@ -202,7 +202,7 @@ Page({
         let that = this
         wx.getLocation({
             type: "gcj02",
-            success: function(res) {
+            success(res) {
                 if (res.accuracy > 40) {
                     // showToast
                     log('当前GPS信号弱，请行驶到开阔地带')
@@ -230,7 +230,9 @@ Page({
                     }
                 })
             },
-            fail: (err) => { }
+            fail(err) {
+                log(err)
+            }
         })
         // 登陆
         let callback = function(res) {
@@ -332,7 +334,7 @@ Page({
             count: 3, // 默认9
             // sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
             // sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-            success: function(res) {
+            success(res) {
                 let arr = res.tempFilePaths
                 let temp = []
                 for (let e of arr) {
