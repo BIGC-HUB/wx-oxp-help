@@ -187,7 +187,7 @@ Page({
         //
     },
     onLoad() {
-
+        //
     },
     onReady() {
         //
@@ -325,57 +325,42 @@ Page({
     bindChooseImg() {
         let that = this
         wx.chooseImage({
-            count: 3, // 默认9
-            // sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+            count: 4, // 默认9
+            sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
             // sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
             success(res) {
-                let arr = res.tempFilePaths
-                let temp = []
-                for (let e of arr) {
-                    wx.uploadFile({
-                        url: config.url + '/upload',
-                        filePath: e,
-                        name: 'file',
-                        header: {
-                            "Content-Type": "multipart/form-data",
-                            "ucloudtech_3rd_key": that.data.user.session_key
-                        },
-                        success(res) {
-                            if (res.statusCode === 200) {
-                                let data = JSON.parse(res.data)
-                                temp.push(data.path)
-                                if (arr.length === temp.length) {
-                                    that.setData({
-                                        imgs: temp
-                                    })
+                new Promise(function(成功, 失败) {
+                    let arr = res.tempFilePaths
+                    let temp = []
+                    for (let e of arr) {
+                        wx.uploadFile({
+                            url: config.url + '/upload',
+                            filePath: e,
+                            name: 'file',
+                            header: {
+                                "Content-Type": "multipart/form-data",
+                                "ucloudtech_3rd_key": that.data.user.session_key
+                            },
+                            success(res) {
+                                if (res.statusCode === 200) {
+                                    let data = JSON.parse(res.data)
+                                    temp.push(data.path)
+                                    if (arr.length === temp.length) {
+                                        成功(temp)
+
+                                    }
                                 }
-                            }
-                        },
+                            },
+                        })
+                    }
+                }).then(function(res) {
+                    log(res)
+                    that.setData({
+                        imgs: res
                     })
-                }
+                })
             }
         })
-        // wx.chooseImage({
-        //     success(res) {
-        //         let arr = res.tempFilePaths
-        //         let temp = []
-        //         for (let e of arr) {
-        //             wx.BaaS.uploadFile({
-        //                 filePath: e,
-        //             }).then((res) => {
-        //                 temp.push(JSON.parse(res.data).path)
-        //                 if (arr.length === temp.length) {
-        //                     that.setData({
-        //                         imgs: temp
-        //                     })
-        //                 }
-        //             }, err => {
-        //                 // 微信自身系统级别错误
-        //                 log(err, '知晓云错误')
-        //             })
-        //         }
-        //     }
-        // })
     },
     bindInputWords(e) {
         let val = e.detail.value

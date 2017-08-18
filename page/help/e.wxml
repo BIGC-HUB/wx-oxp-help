@@ -47,8 +47,8 @@
     <!-- 添加图片 -->
     <view class="imgs">
         <view class="imgs-arr">
-            <block wx:for="{{imgs}}" wx:key="key" >
-                <image class="imgs-img" src="{{item}}" mode="aspectFill"/>
+            <block wx:for="{{imgs}}" wx:for-item="e" wx:key="key" >
+                <image class="imgs-img" src="{{e}}" mode="aspectFill"/>
             </block>
         </view>
         <image class="imgs-btn" src="img/addimg.png" bindtap="bindChooseImg"/>
