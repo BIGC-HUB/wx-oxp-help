@@ -332,23 +332,50 @@ Page({
                 let arr = res.tempFilePaths
                 let temp = []
                 for (let e of arr) {
-                    wx.BaaS.uploadFile({
+                    wx.uploadFile({
+                        url: config.url + '/upload',
                         filePath: e,
-                    }).then((res) => {
-                        temp.push(JSON.parse(res.data).path)
-                        if (arr.length === temp.length) {
-                            that.setData({
-                                imgs: temp
-                            })
-                        }
-                    }, err => {
-                        // 微信自身系统级别错误
-                        log(err, '知晓云错误')
+                        name: 'file',
+                        header: {
+                            "Content-Type": "multipart/form-data",
+                            "ucloudtech_3rd_key": that.data.user.session_key
+                        },
+                        success(res) {
+                            if (res.statusCode === 200) {
+                                let data = JSON.parse(res.data)
+                                temp.push(data.path)
+                                if (arr.length === temp.length) {
+                                    that.setData({
+                                        imgs: temp
+                                    })
+                                }
+                            }
+                        },
                     })
                 }
-
             }
         })
+        // wx.chooseImage({
+        //     success(res) {
+        //         let arr = res.tempFilePaths
+        //         let temp = []
+        //         for (let e of arr) {
+        //             wx.BaaS.uploadFile({
+        //                 filePath: e,
+        //             }).then((res) => {
+        //                 temp.push(JSON.parse(res.data).path)
+        //                 if (arr.length === temp.length) {
+        //                     that.setData({
+        //                         imgs: temp
+        //                     })
+        //                 }
+        //             }, err => {
+        //                 // 微信自身系统级别错误
+        //                 log(err, '知晓云错误')
+        //             })
+        //         }
+        //     }
+        // })
     },
     bindInputWords(e) {
         let val = e.detail.value
