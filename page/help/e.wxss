@@ -38,8 +38,8 @@ page {
     margin: 20rpx  24rpx 20rpx 30rpx;
 }
 .choose-checkbox image {
-    width: 46rpx;
-    height: 26rpx;
+    width: 36rpx;
+    height: 20.5rpx;
 }
 .choose-checked {
     color: #e44240;
