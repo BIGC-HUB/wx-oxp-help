@@ -1,5 +1,10 @@
 const log = console.log.bind(console, '>>>')
 const config = require('../../ku/js/config.js')
+const co = function(func) {
+    return new Promise(function(resolve, reject) {
+        func(resolve, reject)
+    })
+}
 let time = function(z = new Date()) {
     let x = z.toString()
     let zh = '天一二三四五六'
@@ -428,8 +433,22 @@ Page({
             }
         }
         if (bool) {
-            let callback = function(res) {
-                if (res.confirm) {
+            co(function(成功) {
+                wx.showModal({
+                    title: "确认发布吗？",
+                    content: "责任说明：",
+                    cancelColor: "#9B9B9B",
+                    confirmColor: "#FF633D",
+                    success(res) {
+                        if (res.confirm) {
+                            成功(res)
+                        } else if (res.cancel) {
+                            log('取消')
+                        }
+                    },
+                })
+            }).then(function(res) {
+                return co(成功 => {
                     wx.request({
                         url: config.url + '/report',
                         data: data,
@@ -439,37 +458,34 @@ Page({
                             "ucloudtech_3rd_key": e.user.session_key
                         },
                         success: function(res) {
-                            if (res.data.code === 200) {
-                                wx.showModal({
-                                    title: '恭喜您，发布成功！',
-                                    content: '感谢您的支持，期待给您更好的服务☺',
-                                    showCancel: false,
-                                    confirmText: "知道了",
-                                    confirmColor: "#7878FF",
-                                    success: function(res) {
-                                        if (res.confirm) {
-                                            wx.reLaunch({
-                                                url: "../news/e"
-                                            })
-                                        }
-                                    }
-                                })
-                            }
+                            成功(res)
                         },
                         fail: err => {
                             log(err)
                         }
                     })
-                } else if (res.cancel) {
-                    log('取消')
+                })
+            }).then(function(res) {
+                return co(成功 => {
+                    if (res.data.code === 200) {
+                        wx.showModal({
+                            title: '恭喜您，发布成功！',
+                            content: '感谢您的支持，期待给您更好的服务☺',
+                            showCancel: false,
+                            confirmText: "知道了",
+                            confirmColor: "#7878FF",
+                            success: function(res) {
+                                成功(res)
+                            }
+                        })
+                    }
+                })
+            }).then(function(res) {
+                if (res.confirm) {
+                    wx.reLaunch({
+                        url: "../news/e"
+                    })
                 }
-            }
-            wx.showModal({
-                title: "确认发布吗？",
-                content: "责任说明：",
-                cancelColor: "#9B9B9B",
-                confirmColor: "#FF633D",
-                success: callback,
             })
         }
     },
