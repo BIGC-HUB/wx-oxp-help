@@ -150,6 +150,7 @@ Page({
                 name: '个人姓名',
                 key: 'name',
                 val: '',
+                placeholder: '必填',
             },
             {
                 max: 11,
@@ -157,6 +158,7 @@ Page({
                 name: '手机号码',
                 key: 'phone',
                 val: '',
+                placeholder: '必填',
             },
             {
                 max: 18,
@@ -164,6 +166,7 @@ Page({
                 name: '身份证号',
                 key: 'idcard',
                 val: '',
+                placeholder: '',
             },
         ],
         user: {},
@@ -386,7 +389,7 @@ Page({
         let focus = that.data.focus
         // 检查必填
         let bool = true
-        for (let i of ['content','name', 'phone', 'idcard',]) {
+        for (let i of ['content','name', 'phone']) {
             if (o[i] === '') {
                 focus[i] = true
                 that.setData({
