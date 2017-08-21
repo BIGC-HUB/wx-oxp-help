@@ -254,7 +254,10 @@ Page({
                         "Content-Type": "application/json",
                     },
                     success: function(res) {
-                        location.address = res.data.regeocode.formatted_address
+                        location.city = res.data.regeocode.addressComponent.city
+                        location.district = res.data.regeocode.addressComponent.district
+                        location.street = res.data.regeocode.addressComponent.township
+                        location.address = location.city + location.district + location.street
                         that.setData({
                             location: location
                         })

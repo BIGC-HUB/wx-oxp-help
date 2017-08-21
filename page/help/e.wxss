@@ -37,6 +37,10 @@ page {
     align-items: center;
     margin: 20rpx  24rpx 20rpx 30rpx;
 }
+.choose-checkbox image {
+    width: 46rpx;
+    height: 26rpx;
+}
 .choose-checked {
     color: #e44240;
 }

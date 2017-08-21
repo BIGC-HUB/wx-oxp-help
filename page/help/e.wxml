@@ -10,7 +10,7 @@
                     <view class="choose-checkbox choose-checked" bindtap="bindType" data-id="{{index}}">
                         <label name="{{e.name}}">
                             <text> {{e.name}} </text>
-                            <checkbox value="{{e.name}}" checked="{{e.checked}}" />
+                            <image src="img/down.png" />
                         </label>
                     </view>
                     <view class="choose-tips" >
@@ -32,7 +32,7 @@
                     <view class="choose-checkbox" bindtap="bindType" data-id="{{index}}">
                         <label name="{{e.name}}">
                             <text> {{e.name}} </text>
-                            <checkbox value="{{e.name}}" checked="{{e.checked}}" />
+                            <image src="img/down.png" />
                         </label>
                     </view>
                 </view>
