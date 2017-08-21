@@ -22,12 +22,11 @@
                 </swiper>
             <!-- </view> -->
             <view class="one-tips" >
-                <view class="one-tip">
-                    <text>生命危急</text>
-                </view>
-                <view class="one-tip">
-                    <text>骨折</text>
-                </view>
+                <block wx:for="{{e.tips}}" wx:key="key" >
+                    <view class="one-tip">
+                        <text> {{item}} </text>
+                    </view>
+                </block>
             </view>
             <view class="one-phone" data-phone="{{e.phone}}" bindtap="bindPhone">
                 <text> 联系他： </text>

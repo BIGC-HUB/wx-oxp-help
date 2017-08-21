@@ -56,7 +56,16 @@ Page({
         if (res.data.code === 200) {
             let arr = res.data.data
             for (let e of arr) {
+                let tips = []
+                for (let i of e.types) {
+                    for (let i2 of i.arr) {
+                        if (i2.checked) {
+                            tips.push(i2.text)
+                        }
+                    }
+                }
                 let o = {
+                    tips: tips,
                     time: time(new Date(Number(e.date))),
                     content: e.content,
                     name: e.name,

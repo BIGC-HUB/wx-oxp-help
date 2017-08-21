@@ -11,7 +11,7 @@ const data = [
     },
     {
         teamPhone: '0837-7739529',
-        teamName: "九寨沟管理局24小时",
+        teamName: "九寨沟管理局",
         teamIcon: ""
     },
 ]

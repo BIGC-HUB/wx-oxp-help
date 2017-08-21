@@ -470,7 +470,7 @@ Page({
             co(function(成功) {
                 wx.showModal({
                     title: "确认发布吗？",
-                    content: "责任说明：",
+                    content: "责任说明：我将对此发布的信息保证其真实可靠并承担相应的法律责任。",
                     cancelColor: "#9B9B9B",
                     confirmColor: "#FF633D",
                     success(res) {
