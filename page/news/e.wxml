@@ -8,7 +8,7 @@
                         <text class="one-name" >{{e.name}}</text>
                         <text class="one-time" >{{e.time}}</text>
                     </view>
-                    <view class="one-location"> {{e.location.address}} </view>
+                    <view class="one-location">　　　　{{e.location.address}} </view>
                 </view>
             </view>
             <view class="one-content" > {{e.content}} </view>

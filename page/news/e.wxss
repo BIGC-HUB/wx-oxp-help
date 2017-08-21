@@ -13,11 +13,12 @@ page {
     width: 700rpx;
 }
 .one-top {
+    position: relative;
     padding-top: 20rpx;
     display: flex;
     /*justify-content: center;*/
     width: 700rpx;
-    height: 130rpx;
+    height: 140rpx;
     border-bottom: 1px solid #e5e5e5;
 }
 .one-img {
@@ -43,13 +44,9 @@ page {
     color: #1e1e1e;
 }
 .one-location {
-    /* 禁止 换行 */
-    white-space: nowrap;
-    /* 隐藏 超出部分 */
-    overflow: hidden;
-    /* 省略号 替代 */
-    text-overflow: ellipsis;
-    margin-top: 12rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 .one-content {
     margin-top: 30rpx;
