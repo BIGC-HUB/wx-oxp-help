@@ -195,7 +195,37 @@ Page({
         //
     },
     onLoad() {
-        //
+        let data = wx.getStorageSync('helpData')
+        if (data) {
+            this.setData({
+                info: [
+                    {
+                        max: 60,
+                        type: 'text',
+                        name: '个人姓名',
+                        key: 'name',
+                        val: data.name,
+                        placeholder: '必填',
+                    },
+                    {
+                        max: 11,
+                        type: 'number',
+                        name: '手机号码',
+                        key: 'phone',
+                        val: data.phone,
+                        placeholder: '必填',
+                    },
+                    {
+                        max: 18,
+                        type: 'idcard',
+                        name: '身份证号',
+                        key: 'idcard',
+                        val: data.idcard,
+                        placeholder: '',
+                    },
+                ]
+            })
+        }
     },
     onReady() {
         //
@@ -468,6 +498,7 @@ Page({
             }).then(function(res) {
                 return co(成功 => {
                     if (res.data.code === 200) {
+                        wx.setStorageSync('helpData', data)
                         wx.showModal({
                             title: '恭喜您，发布成功！',
                             content: '感谢您的支持，期待给您更好的服务☺',
