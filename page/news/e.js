@@ -10,10 +10,10 @@ let time = function(z = new Date()) {
     let Minute = x.slice(19, 21)
     let Second = x.slice(22, 24)
     let Week = zh[z.getDay()]
-    if (Month.length === 1) {
-        Month = '0' + Month
-    }
-    return `${Hour}:${Minute}/${Day}/${Month}/${Year}`
+    // if (Month.length === 1) {
+    //     Month = '0' + Month
+    // }
+    return `${Year}年${Month}月${Day}日 ${Hour}:${Minute}`
 }
 Page({
     // 数据
