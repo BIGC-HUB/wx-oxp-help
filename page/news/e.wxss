@@ -67,6 +67,7 @@ page {
 .one-tips {
     display: flex;
     justify-content: flex-end;
+    flex-wrap: wrap;
     padding: 40rpx 0 30rpx;
     border-bottom: 1px solid #e5e5e5;
 }

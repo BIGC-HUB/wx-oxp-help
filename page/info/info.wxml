@@ -7,7 +7,7 @@
     <text class="team_name">{{item.teamName}}</text>
   </view>
   <view class="info_bottom" bindtap="callPhone" data-id="{{index}}">
-    <text class="team_phone">救援热线　　　{{item.teamPhone}}</text>
+    <text class="team_phone">救援热线　　{{item.teamPhone}}</text>
     <image class="call" src="img/call.png"></image>
   </view>
   <view class="empty"></view>
