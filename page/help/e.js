@@ -381,7 +381,7 @@ Page({
                             name: 'file',
                             header: {
                                 "Content-Type": "multipart/form-data",
-                                "ucloudtech_3rd_key": that.data.user.session_key
+                                "ucloudtechkey": that.data.user.session_key
                             },
                             success(res) {
                                 if (res.statusCode === 200) {
@@ -489,7 +489,7 @@ Page({
                         method: 'POST',
                         header: {
                             "Content-Type": "application/x-www-form-urlencoded",
-                            "ucloudtech_3rd_key": e.user.session_key
+                            "ucloudtechkey": e.user.session_key
                         },
                         success: function(res) {
                             成功(res)

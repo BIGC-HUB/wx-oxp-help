@@ -43,7 +43,7 @@ Page({
             method: 'POST',
             header: {
                 "Content-Type": "application/x-www-form-urlencoded",
-                "ucloudtech_3rd_key": user.session_key
+                "ucloudtechkey": user.session_key
             },
             success: that.init,
             fail(err) {
